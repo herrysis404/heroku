@@ -20,7 +20,7 @@ WORKDIR /app
 RUN chmod 777 /app
 ENV PATH="/app/venv/bin:$PATH" VIRTUAL_ENV="/app/venv" LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive
 
-COPY set.sh .
+COPY start.sh .
 RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false update \
     && apt-get install --no-install-recommends --no-install-suggests --no-upgrade build-essential -y gnupg2 \
     wget \
@@ -33,7 +33,7 @@ RUN apt-get -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false upd
 
 RUN wget -qO - https://ftp-master.debian.org/keys/archive-key-10.asc | apt-key add - \
     && sh -c 'echo deb http://deb.debian.org/debian buster main contrib non-free | tee -a /etc/apt/sources.list' \
-    && bash set.sh \
+    && bash start.sh \
     && apt update \
     && apt install --no-install-recommends -y unrar \
     && apt-get clean autoclean && rm -rf /var/lib/apt/lists/* /app/rclone-* /app/ffmpeg-* /app/aria2-*
