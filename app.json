@@ -1,90 +1,45 @@
 {
-    "name": "heroku",
-    "description": "heroku yes",
-    "keywords": ["heroku yes"],
-    "env": {
-        "AA": {
-            "description": "初阶用户只需填写App name后按需修改以下APASSWORD和AUUID两项后点击页面最后的Deploy app按钮即可开始部署",
-            "value": "如出现错误，请检查参数格式或多尝试几次。使用自定义参数请务必先充分理解其含义"
-        },
-        "APASSWORD": {
-            "description": "SS和BROOK以及GOST使用的密码",
-            "value": "password"
-        },
-        "TOREnable": {
-            "description": "TOR开关，默认关闭，修改为true时候启用",
-            "value": "false"
-        },
-        "CADDYIndexPage": {
-            "description": "自定义CADDY部署完成后点击View的显示页面，参考：https://github.com/mixool/heroku/blob/master/etc/CADDYIndexPage.md",
-            "value": "https://raw.githubusercontent.com/caddyserver/dist/master/welcome/index.html"
-        },
-        "CADDYCONFIG": {
-            "description": "自定义网络地址读取配置运行CADDY，不熟悉CADDY配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/mixool/heroku/master/etc/Caddyfile"
-        },
-        "ROBOTS": {
-            "description": "ROBOTS爬虫规则开关，默认开启，修改为false时候关闭",
-            "value": "true"
-        },
-        "ROBOTSCONFIG": {
-            "description": "自定义ROBOTS爬虫配置，默认配置禁止所有爬虫",
-            "value": "https://raw.githubusercontent.com/mixool/heroku/master/etc/robots.txt"
-        },
-        "SSEnable": {
-            "description": "SS开关，默认启用，修改为false时关闭",
-            "value": "true"
-        },
-        "SSENCYPT": {
-            "description": "SS加密方式",
-            "value": "chacha20-ietf-poly1305"
-        },
-        "SSPATH": {
-            "description": "SS路径",
-            "value": "/sspath"
-        },
-        "GOSTEnable": {
-            "description": "GOST开关，默认启用，修改为false时关闭",
-            "value": "true"
-        },
-        "GOSTPATH": {
-            "description": "GOST路径",
-            "value": "/gostpath"
-        },
-        "GOSTMETHOD": {
-            "description": "自定义GOST运行参数，不熟悉GOST配置的请勿修改",
-            "value": "-L=ss+ws://AEAD_CHACHA20_POLY1305:$APASSWORD@127.0.0.1:2234?path=$GOSTPATH"
-        },
-        "BROOKEnable": {
-            "description": "BROOK开关，默认启用，修改为false时关闭",
-            "value": "true"
-        },
-        "BROOKPATH": {
-            "description": "BROOK路径",
-            "value": "/brookpath"
-        },
-        "V2RAYEnable": {
-            "description": "V2RAY开关，默认启用，修改为false时关闭",
-            "value": "true"
-        },
-        "VMESSPATH": {
-            "description": "V2RAY使用VMESS时的路径",
-            "value": "/vmesspath"
-        },
-        "VLESSPATH": {
-            "description": "V2RAY使用VLESS时的路径",
-            "value": "/vlesspath"
-        },
-        "AUUID": {
-            "description": "V2RAY使用的UUID,可生成UUID的网站: https://www.uuidgenerator.net",
-            "value": "8f91b6a0-e8ee-11ea-adc1-0242ac120002"
-        },
-        "V2RAYCONFIG": {
-            "description": "自定义网络地址读取配置运行V2RAY，不熟悉V2RAY配置的请勿修改",
-            "value": "https://raw.githubusercontent.com/mixool/heroku/master/etc/v2ray.json"
-        }
+  "name": "Telegram Torrent Leecher",
+  "description": "A Telegram Torrent!",
+  "keywords": [
+    "telegram"
+  ],
+  "repository": "https://github.com/trytrykok/joojoo",
+  "success_url": "https://github.com/trytrykok/joojoo",
+  "website": "https://github.com/trytrykok/joojoo",
+  "env": {
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable webhooks when in env mode",
+      "value": "ANYTHING"
     },
-    "website": "https://github.com/mixool/heroku",
-    "repository": "https://github.com/mixool/heroku",
-    "stack": "container"
+    "APP_ID": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from https://my.telegram.org",
+      "value": ""
+    },
+    "TG_BOT_TOKEN": {
+      "description": "get this value from @BotFather",
+      "value": ""
+    },
+    "AUTH_CHANNEL": {
+      "description": "should be an integer. The BOT API ID of the Telegram Group, where the Leecher should work.",
+      "value": ""
+    },
+    "OWNER_ID": {
+      "description": "should be an integer. ID of owner of bot",
+      "value": ""
+    },
+    "RCLONE_CONFIG": {
+      "description": "Enter your copied text from rclone config. Compulsory for /gleech as well as /tleech command ",
+      "required": false
+    },
+    "DESTINATION_FOLDER": {
+      "description": "Enter your Cloud folder NAME(not ID😅) in which you want to upload/store your files.",
+      "required": false
+    }
+  },
+  "stack": "container"  
 }
